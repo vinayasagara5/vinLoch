@@ -1,0 +1,296 @@
+@mixin mobile {
+  @media (max-width: 520px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 960px) {
+    @content;
+  }
+}
+$base-font-size: 16px;
+
+@function to-rem($pixels) {
+  @return $pixels / $base-font-size + 0rem;
+}
+$background-color-gradient: radial-gradient(
+  92.19% 89.74% at 32.27% 91.27%,
+  rgba(31, 169, 17, 0.81) 17.21%,
+  #2f15d0 64.58%,
+  rgba(0, 0, 0, 1) 100%
+);
+
+.landing {
+  display: flex;
+
+  @include mobile {
+    flex-wrap: wrap;
+  }
+  @include tablet {
+    max-height: unset;
+  }
+  p {
+    margin: 0;
+  }
+  .leftColumn {
+    width: 55vw;
+    background: $background-color-gradient;
+    margin: 0;
+    color: white;
+    padding: to-rem(86px) to-rem(0px) to-rem(60px) to-rem(60px);
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(10px);
+    @include tablet {
+      flex-wrap: wrap;
+      height: unset;
+      width: 60vw;
+      padding: to-rem(30px) to-rem(0px) to-rem(30px) to-rem(30px);
+      flex: 1;
+    }
+    .notificationContainer {
+      display: flex;
+      @include tablet {
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      .notificationMessage {
+        display: flex;
+        flex-direction: column;
+        gap: to-rem(16px);
+        min-width: to-rem(300px);
+        @include mobile {
+          min-width: unset;
+          width: 90% !important;
+        }
+        .message {
+          color: var(--Background---F2F2F2, #f2f2f2);
+          text-shadow: to-rem(0px) to-rem(4px) to-rem(4px) rgba(0, 0, 0, 0.25);
+          font-size: to-rem(31px);
+          font-style: normal;
+          font-weight: 500;
+          line-height: 120%;
+          @include mobile {
+            width: 90% !important;
+          }
+        }
+        .messageBottom {
+          color: var(--Background---F2F2F2, #f2f2f2);
+          font-size: to-rem(16px);
+          font-style: normal;
+          font-weight: 500;
+          line-height: 120%;
+          @include mobile {
+          }
+        }
+      }
+
+      .notificationCarousel {
+        padding: to-rem(6px) to-rem(0px) to-rem(85px) to-rem(46px);
+        min-width: to-rem(300px);
+        overflow: scroll;
+        width: 100%;
+        display: flex;
+        gap: to-rem(20px);
+        scrollbar-width: none;
+
+        @include tablet {
+          margin-top: to-rem(60px);
+          padding: to-rem(6px) to-rem(0px) to-rem(0px) to-rem(0px);
+        }
+      }
+      .notificationCarousel::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    .cohortContainer {
+      display: flex;
+      margin-top: 60px;
+      @include tablet {
+        flex-wrap: wrap;
+      }
+      .cohortImage {
+        @include tablet {
+          img {
+            width: 90%;
+          }
+        }
+      }
+
+      .cohortText {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        gap: to-rem(16px);
+        padding-right: to-rem(60px);
+        padding-left: to-rem(38px);
+
+        @include tablet {
+          margin-top: to-rem(20px);
+          padding: to-rem(30px);
+        }
+        .message {
+          color: var(--Background---F2F2F2, #f2f2f2);
+          text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          font-size: to-rem(31px);
+          font-style: normal;
+          font-weight: 500;
+          line-height: 120%;
+        }
+        .messageBottom {
+          color: var(--Background---F2F2F2, #f2f2f2);
+          font-size: to-rem(16px);
+          font-style: normal;
+          font-weight: 500;
+          line-height: 120%;
+        }
+      }
+    }
+    .testimonials {
+      margin-top: to-rem(22px);
+
+      border-bottom: 1px solid rgba(229, 229, 230, 0.5);
+      width: 100%;
+      p {
+        color: var(--Background---F2F2F2, #f2f2f2);
+        text-align: right;
+        font-size: to-rem(25px);
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%;
+        padding-bottom: to-rem(22px);
+        padding-right: to-rem(60px);
+        @include tablet {
+          padding-right: 0px;
+          text-align: center;
+        }
+      }
+    }
+    .carouselContianer {
+      margin-top: to-rem(40px);
+      gap: to-rem(40px);
+      align-items: start;
+      display: flex;
+      position: relative;
+
+      @include tablet {
+        flex-wrap: wrap;
+        overflow: hidden;
+        width: 100% !important;
+        margin-top: -50px;
+      }
+
+      .carouselCom {
+        min-width: to-rem(400px);
+        margin: 0;
+        width: 100%;
+        .carousel-item {
+          @include tablet {
+            width: to-rem(300px);
+          }
+        }
+      }
+
+      .lochIcon {
+        margin: 0;
+        position: relative;
+        height: to-rem(136px);
+        width: to-rem(60px);
+        @include tablet {
+          margin-left: calc(30vw - 30px);
+        }
+        .vecPos {
+          position: absolute;
+          height: 60px;
+          bottom: 0;
+
+          @keyframes spin {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+
+          > svg {
+            animation: spin 2s infinite linear;
+          }
+        }
+      }
+    }
+  }
+  .rightColumn {
+    margin: 0;
+    padding: 0;
+    width: 45vw;
+    padding: 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: to-rem(32px);
+    background-color: white;
+    .error-message {
+      color: red;
+    }
+    @include tablet {
+      height: unset;
+      z-index: 100;
+      display: block;
+      flex: 1;
+    }
+    h1 {
+      font-size: to-rem(39px);
+      color: var(--grey-300, #b0b1b3);
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: to-rem(24px);
+      input {
+        padding: to-rem(20px) to-rem(24px);
+        font-size: to-rem(16px);
+        border-radius: to-rem(12px);
+        border: to-rem(1px) solid var(--grey-100, #e5e5e6);
+        background: #fff;
+        box-shadow: to-rem(0px) to-rem(1px) to-rem(1px) to-rem(0px)
+            rgba(0, 0, 0, 0.04),
+          to-rem(0px) to-rem(4px) to-rem(10px) to-rem(0px) rgba(0, 0, 0, 0.04);
+      }
+      input::placeholder {
+        font-size: to-rem(16px);
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%;
+        color: var(--grey-200, #cacbcc);
+      }
+      button {
+        padding: to-rem(18px) to-rem(28px);
+        border-radius: to-rem(12px);
+        border: to-rem(1px) solid var(--grey-900, #19191a);
+        background: var(--grey-900, #19191a);
+        border-radius: 8px;
+        border: 1px solid var(--grey-900, #19191a);
+        background: var(--grey-900, #19191a);
+        color: var(--White, #fff);
+        text-align: center;
+        font-size: to-rem(16px);
+        font-style: normal;
+        font-weight: 600;
+        line-height: 120%;
+      }
+      p {
+        color: var(--grey-900, #19191a);
+        text-align: center;
+        font-size: to-rem(16px);
+        font-style: normal;
+        font-weight: 600;
+        line-height: 120%;
+      }
+    }
+  }
+}
