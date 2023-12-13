@@ -200,6 +200,10 @@ $background-color-gradient: radial-gradient(
         @include tablet {
           margin-left: calc(30vw - 30px);
         }
+
+         @include mobile {
+          margin-left: calc(30vw);
+        }
         .vecPos {
           position: absolute;
           height: 60px;
