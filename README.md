@@ -68,3 +68,39 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Folder Structure 
+
+public/
+|-- index.html
+|-- assets
+src/
+|-- app.css
+|-- app.js
+|-- index.css
+|-- index.js
+|-- assets/
+|-- pages/
+|   |-- LandingPage/
+|   |   |-- LandingPage.jsx
+|   |   `-- landingpage.scss
+|-- components/
+|   |-- BarChartCard/
+|   |   |-- BarChartCard.js
+|   |   `-- barchartcard.scss
+|   |-- BellCard/
+|   |   |-- BellCard.js
+|   |   `-- bellcard.scss
+|   |-- BottomCard/
+|   |   |-- BottomCard.js
+|   |   `-- bottomcard.scss
+|   |-- Carousel/
+|   |   |-- Carousel.js
+|   |   `-- carousel.scss
+|   |-- ClockCard/
+|   |   |-- ClockCard.js
+|   |   `-- clockcard.scss
+package.json
+package-lock.json
+README.md (Main project README with an overview of the folder structure and project instructions)
+
